@@ -1,6 +1,7 @@
 
 #![allow(unused)]
 
+mod game;
 mod printing;
 mod ownership;
 mod structs;
@@ -8,9 +9,11 @@ mod structs;
 use structs::create::User;
 use structs::instantiate::new_user;
 use structs::create::Point;
+use game::guessing_game;
 
 
 fn main() {
+  guessing_game();
   // testing_ownership();
   // testing_structs()
 }
