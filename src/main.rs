@@ -11,12 +11,10 @@ use structs::create::User;
 use structs::instantiate::new_user;
 use structs::create::Point;
 use game::guessing_game;
-use patterns::enumerate::IpAddrKind;
-use patterns::enumerate::Ipv4Adrr;
-use patterns::enumerate::Ipv6Addr;
-use patterns::match_statement::Coin;
-use patterns::match_statement::UsState;
-use patterns::match_statement::counts_coins;
+// you can use nested paths when the all imports have a similar path
+use patterns::enumerate::{IpAddrKind, Ipv4Adrr, Ipv6Addr};
+// you can also use the * operator when you want all the public items in the path
+use patterns::match_statement::*;
 
 
 fn main() {

@@ -1,5 +1,6 @@
 
-use crate::User;
+// equivalent to use crate::structs::create::User;
+use super::create::User;
 
 
 pub fn new_user(name: &str, email: &str) -> User {
