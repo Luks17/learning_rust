@@ -6,6 +6,9 @@ mod printing;
 mod ownership;
 mod structs;
 mod patterns;
+mod collections;
+
+use std::ops::Index;
 
 use structs::create::User;
 use structs::instantiate::new_user;
@@ -15,6 +18,7 @@ use game::guessing_game;
 use patterns::enumerate::{IpAddrKind, Ipv4Adrr, Ipv6Addr};
 // you can also use the * operator when you want all the public items in the path
 use patterns::match_statement::*;
+use collections::{vectors, strings, hashmaps};
 
 
 fn main() {
@@ -22,6 +26,13 @@ fn main() {
   // testing_ownership();
   // testing_structs()
   // testing_patterns();
+  // testing_collections();
+}
+
+fn testing_collections() {
+  // vectors::test_vectors();
+  // strings::test_strings();
+  // hashmaps::test_hash_map();
 }
 
 fn testing_patterns() {
