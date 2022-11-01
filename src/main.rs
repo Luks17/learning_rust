@@ -1,4 +1,5 @@
 
+// used so the compiler does not complain about unused variables
 #![allow(unused)]
 
 mod game;
@@ -7,8 +8,8 @@ mod ownership;
 mod structs;
 mod patterns;
 mod collections;
-
-use std::ops::Index;
+mod errors;
+mod generics_and_traits;
 
 use structs::create::User;
 use structs::instantiate::new_user;
@@ -19,6 +20,8 @@ use patterns::enumerate::{IpAddrKind, Ipv4Adrr, Ipv6Addr};
 // you can also use the * operator when you want all the public items in the path
 use patterns::match_statement::*;
 use collections::{vectors, strings, hashmaps};
+use errors::result::{open_file_with_result_using_matches, create_file, write_username};
+use errors::propagation::read_username_from_file;
 
 
 fn main() {
@@ -27,6 +30,28 @@ fn main() {
   // testing_structs()
   // testing_patterns();
   // testing_collections();
+  // testing_errors();
+  testing_generics_and_traits();
+}
+
+fn testing_generics_and_traits() {
+
+}
+
+fn testing_errors() {
+  // open_file_with_result_using_matches();
+
+  let mut f = create_file();  
+
+  match write_username("Luks17", &mut f) {
+    Ok(_) => println!("Write successful"),
+    Err(err) => println!("Error writing file: {:?}", err),
+  };
+
+  match read_username_from_file() {
+    Ok(str) => println!("{}", str),
+    Err(err) => panic!("Failed to read username from file: {:?}", err),
+  };
 }
 
 fn testing_collections() {
