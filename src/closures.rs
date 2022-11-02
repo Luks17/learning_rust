@@ -25,5 +25,17 @@ pub fn test_closures() {
   println!("Cached calculated value: {}", expensive_closure.value(st1));
   println!("New calculated value: {}", expensive_closure.value(st2));
   println!("Another new calculated value: {}", expensive_closure.value(st3));
-  println!("Cache of another new calculated value: {}", expensive_closure.value(st3));
+  println!("Cache of another new calculated value: {}\n", expensive_closure.value(st3));
+
+
+  let mut not_that_expensive_closure = Cacher::new(|value: i32| {
+    println!("Calculating some stuff...");
+    thread::sleep(Duration::from_millis(700));
+    value * 2
+  });
+
+  println!("Calculated {} resulting in: {}", 3, not_that_expensive_closure.value(-3));
+  println!("Calculated {} resulting in: {}", 7, not_that_expensive_closure.value(7));
+  println!("Cached {} resulting in: {}", 3, not_that_expensive_closure.value(-3));
+  println!("Cached {} resulting in: {}", 7, not_that_expensive_closure.value(7));
 }
