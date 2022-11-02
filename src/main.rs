@@ -10,6 +10,7 @@ mod patterns;
 mod collections;
 mod errors;
 mod generics_and_traits;
+mod closures;
 
 use structs::create::User;
 use structs::instantiate::new_user;
@@ -22,6 +23,7 @@ use patterns::match_statement::*;
 use collections::{vectors, strings, hashmaps};
 use errors::result::{open_file_with_result_using_matches, create_file, write_username};
 use errors::propagation::read_username_from_file;
+use closures::test_closures;
 
 
 fn main() {
@@ -31,7 +33,12 @@ fn main() {
   // testing_patterns();
   // testing_collections();
   // testing_errors();
-  testing_generics_and_traits();
+  // testing_generics_and_traits();
+  testing_closures();
+}
+
+fn testing_closures() {
+  test_closures();
 }
 
 fn testing_generics_and_traits() {
