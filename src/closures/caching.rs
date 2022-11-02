@@ -2,18 +2,18 @@
 use std::{collections::HashMap, hash::Hash, cmp::Eq};
 
 
-pub struct Cacher<T, U> {
+pub struct Cacher<T, U, V> {
   calculation: T,
-  value: HashMap<U, U>,
+  value: HashMap<U, V>,
 }
 
-impl<T, U> Cacher<T, U> 
-where T: Fn(U) -> U, U: Eq + Hash + Copy {
-  pub fn new(calculation: T) -> Cacher<T, U> {
+impl<T, U, V> Cacher<T, U, V> 
+where T: Fn(U) -> V, U: Eq + Hash + Copy, V: Copy {
+  pub fn new(calculation: T) -> Cacher<T, U, V> {
     Cacher { calculation, value: HashMap::new() }
   } 
 
-  pub fn value(self: &mut Self, arg: U) -> U {
+  pub fn value(self: &mut Self, arg: U) -> V {
     match self.value.get(&arg) {
       Some(x) => *x,
       None => {
