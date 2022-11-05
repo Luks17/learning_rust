@@ -11,6 +11,7 @@ mod collections;
 mod errors;
 mod generics_and_traits;
 mod closures;
+mod concurrency;
 
 use structs::create::User;
 use structs::instantiate::new_user;
@@ -24,6 +25,7 @@ use collections::{vectors, strings, hashmaps};
 use errors::result::{open_file_with_result_using_matches, create_file, write_username};
 use errors::propagation::read_username_from_file;
 use closures::test_closures;
+use concurrency::{threads, threads_panic};
 
 
 fn main() {
@@ -34,7 +36,12 @@ fn main() {
   // testing_collections();
   // testing_errors();
   // testing_generics_and_traits();
-  testing_closures();
+  // testing_closures();
+  testing_concurrency()
+}
+
+fn testing_concurrency() {
+  threads_panic::test_thread_panic();
 }
 
 fn testing_closures() {
